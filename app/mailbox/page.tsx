@@ -58,7 +58,7 @@ export default function MailboxPage() {
                 <div className="flex items-start gap-4">
                   <div className="relative w-16 h-20 flex-shrink-0">
                     <img
-                      src="/images/cards/write-letter-bg.png"
+                      src="/images/cards/letter-card.png"
                       className="w-full h-full object-cover rounded-lg"
                       alt="侨批"
                     />
