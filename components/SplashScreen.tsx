@@ -32,6 +32,7 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
         setStatus(`正在加载资源 ${loadedCount}/${imagesToLoad.length}`);
       } else {
         setStatus('准备就绪');
+        localStorage.setItem('qiaopi-images-loaded', 'true');
         setTimeout(() => {
           onComplete();
         }, 500);

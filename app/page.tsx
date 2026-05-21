@@ -2,12 +2,19 @@
 import { useRouter } from 'next/navigation';
 import { BottomNav } from '@/components/BottomNav';
 import { backgroundStyles } from '@/lib/styles';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { SplashScreen } from '@/components/SplashScreen';
 
 export default function HomePage() {
   const router = useRouter();
   const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    const imagesLoaded = localStorage.getItem('qiaopi-images-loaded');
+    if (imagesLoaded === 'true') {
+      setIsReady(true);
+    }
+  }, []);
 
   if (!isReady) {
     return <SplashScreen onComplete={() => setIsReady(true)} />;
