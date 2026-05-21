@@ -1,33 +1,26 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import { BottomNav } from '@/components/BottomNav';
-import { backgroundStyles, preloadImages } from '@/lib/styles';
-import { useEffect, useState } from 'react';
+import { backgroundStyles } from '@/lib/styles';
+import { useState } from 'react';
+import { SplashScreen } from '@/components/SplashScreen';
 
 export default function HomePage() {
   const router = useRouter();
-  const [imageLoaded, setImageLoaded] = useState(false);
+  const [isReady, setIsReady] = useState(false);
 
-  useEffect(() => {
-    preloadImages();
-    
-    const img = new Image();
-    img.onload = () => {
-      setImageLoaded(true);
-    };
-    img.src = '/images/backgrounds/home-bg.jpg';
-  }, []);
+  if (!isReady) {
+    return <SplashScreen onComplete={() => setIsReady(true)} />;
+  }
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div className="min-h-screen relative overflow-hidden animate-fade-in">
       {/* 背景图片 - 支持替换 */}
       <div className="absolute inset-0">
-        {/* 背景色占位 */}
-        <div className="absolute inset-0 bg-[#8B6914]" />
         {/* 背景图 */}
         <img 
           src="/images/backgrounds/home-bg.jpg" 
-          className={`w-full h-full object-cover transition-opacity duration-700 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`} 
+          className="w-full h-full object-cover" 
           alt="侨信局背景" 
         />
         {/* 光效叠加层 - 营造温暖氛围 */}
