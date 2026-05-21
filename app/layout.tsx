@@ -21,6 +21,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="zh-CN">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+      </head>
       <body className="font-qiaopi">
         <div className="max-w-md mx-auto bg-qiaopi-light min-h-screen relative">
           <Suspense fallback={<div className="min-h-screen bg-qiaopi-paper flex items-center justify-center"><div className="w-8 h-8 border-2 border-qiaopi-brown/30 border-t-qiaopi-red rounded-full animate-spin" /></div>}>

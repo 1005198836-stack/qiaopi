@@ -9,7 +9,7 @@
   --color-qiaopi-gold: #D4A574;
   --color-qiaopi-font: #4B2A1A;
   
-  --font-family-qiaopi: 'STKaiti', 'KaiTi', '楷体', serif;
+  --font-family-qiaopi: 'Noto Serif SC', 'STKaiti', 'KaiTi', '楷体', serif;
   
   --animate-write: write 2s ease-in-out infinite;
   --animate-float: float 3s ease-in-out infinite;
@@ -99,7 +99,7 @@
 }
 
 html {
-  font-family: 'STKaiti', 'KaiTi', '楷体', serif;
+  font-family: 'Noto Serif SC', 'STKaiti', 'KaiTi', '楷体', serif;
 }
 
 body {
