@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { backgroundStyles } from '@/lib/styles';
 
 export default function GeneratingPage() {
   const router = useRouter();
@@ -30,7 +31,7 @@ export default function GeneratingPage() {
   }, [router, searchParams]);
 
   return (
-    <div className="min-h-screen bg-[url('/images/backgrounds/write-bg.png')] bg-cover bg-center bg-no-repeat flex flex-col items-center px-6">
+    <div className="min-h-screen flex flex-col items-center px-6" style={backgroundStyles.write}>
       <div className="w-full max-w-xs mt-12 text-center">
         <p className="text-[#4B2A1A] font-qiaopi text-lg font-bold mb-3">正在为你书写侨批...</p>
         <div className="flex items-center gap-3">

@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { backgroundStyles } from '@/lib/styles';
 
 export default function OpenLetterPage() {
   const router = useRouter();
@@ -26,7 +27,7 @@ export default function OpenLetterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[url('/images/backgrounds/write-letter-bg.png')] bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center px-6">
+    <div className="min-h-screen flex flex-col items-center justify-center px-6" style={backgroundStyles.writeLetter}>
       <div className="text-center">
         <h2 className="text-[#4B2A1A] font-qiaopi text-xl font-bold mb-2">拆开信封</h2>
         <p className="text-[#4B2A1A]/70 font-qiaopi text-sm font-bold mb-8">点击拆开信封，查看侨批</p>

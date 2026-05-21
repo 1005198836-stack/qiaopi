@@ -1,6 +1,7 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import { BottomNav } from '@/components/BottomNav';
+import { backgroundStyles } from '@/lib/styles';
 
 export default function HomePage() {
   const router = useRouter();
@@ -69,7 +70,8 @@ export default function HomePage() {
           <div className="grid grid-cols-2 gap-4 mb-10">
             <button
               onClick={() => router.push('/write-letter')}
-              className="relative h-36 bg-[url('/images/cards/card-write-bg.png')] bg-[length:100%_100%] bg-center bg-no-repeat rounded-xl p-4 text-left hover:scale-[1.02] transition-all duration-300"
+              className="relative h-36 rounded-xl p-4 text-left hover:scale-[1.02] transition-all duration-300"
+              style={backgroundStyles.cardWrite}
             >
               <div className="text-[#4B2A1A] font-qiaopi text-lg mb-1">给他们写信</div>
               <div className="text-[#4B2A1A]/70 font-qiaopi text-sm">淑柔、木生、南枝</div>
@@ -78,7 +80,8 @@ export default function HomePage() {
             
             <button
               onClick={() => router.push('/mailbox')}
-              className="relative h-36 bg-[url('/images/cards/card-mailbox-bg.png')] bg-[length:100%_100%] bg-center bg-no-repeat rounded-xl p-4 text-left hover:scale-[1.02] transition-all duration-300"
+              className="relative h-36 rounded-xl p-4 text-left hover:scale-[1.02] transition-all duration-300"
+              style={backgroundStyles.cardMailbox}
             >
               <div className="text-[#4B2A1A] font-qiaopi text-lg mb-1">我的信箱</div>
               <div className="text-[#4B2A1A]/70 font-qiaopi text-sm">查看已生成的侨批</div>

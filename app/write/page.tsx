@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { Header } from '@/components/Header';
 import { BottomNav } from '@/components/BottomNav';
 import { ChevronDown } from 'lucide-react';
+import { backgroundStyles } from '@/lib/styles';
 
 interface FormData {
   senderName: string;
@@ -47,7 +48,7 @@ export default function WritePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[url('/images/backgrounds/write-letter-bg.png')] bg-cover bg-center bg-no-repeat pb-24">
+    <div className="min-h-screen pb-24" style={backgroundStyles.writeLetter}>
       <Header title="写一封侨批" showBack onBack={() => router.back()} />
       
       <div className="px-6 pt-6">

@@ -3,6 +3,7 @@ import { useRouter } from 'next/navigation';
 import { Header } from '@/components/Header';
 import { BottomNav } from '@/components/BottomNav';
 import { getQiaopiList, mockQiaopiList } from '@/stores/qiaopi';
+import { backgroundStyles } from '@/lib/styles';
 
 export default function MailboxPage() {
   const router = useRouter();
@@ -23,7 +24,7 @@ export default function MailboxPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[url('/images/backgrounds/write-letter-bg.png')] bg-cover bg-center bg-no-repeat pb-24">
+    <div className="min-h-screen pb-24" style={backgroundStyles.writeLetter}>
       <Header title="我的信箱" showBack onBack={() => router.back()} />
       
       <div className="px-6 pt-4">

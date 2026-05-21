@@ -5,6 +5,7 @@ import { Header } from '@/components/Header';
 import { BottomNav } from '@/components/BottomNav';
 import { getChineseDate } from '@/lib/utils';
 import { saveQiaopi, generateId, Qiaopi } from '@/stores/qiaopi';
+import { backgroundStyles } from '@/lib/styles';
 
 export default function LetterDetailPage() {
   const router = useRouter();
@@ -418,7 +419,7 @@ ${getChineseDate()}`;
   };
 
   return (
-    <div className="min-h-screen bg-[url('/images/backgrounds/write-letter-bg.png')] bg-cover bg-center bg-no-repeat pb-24">
+    <div className="min-h-screen pb-24" style={backgroundStyles.writeLetter}>
       <Header title="信件详情" showBack onBack={() => router.back()} />
       
       <div className="px-4 pt-4">

@@ -3,6 +3,7 @@ import { useRouter } from 'next/navigation';
 import { Header } from '@/components/Header';
 import { BottomNav } from '@/components/BottomNav';
 import { characters } from '@/stores/qiaopi';
+import { backgroundStyles } from '@/lib/styles';
 
 export default function WriteLetterPage() {
   const router = useRouter();
@@ -12,7 +13,7 @@ export default function WriteLetterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[url('/images/backgrounds/write-letter-bg.png')] bg-cover bg-center bg-no-repeat pb-24">
+    <div className="min-h-screen pb-24" style={backgroundStyles.writeLetter}>
       <Header title="给他们写信" subtitle="他们会回信给你" showBack onBack={() => router.back()} />
       
       <div className="px-6 pt-6">

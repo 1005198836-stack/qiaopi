@@ -1,5 +1,6 @@
 import { ArrowLeft, Menu } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { backgroundStyles } from '@/lib/styles';
 
 interface HeaderProps {
   title?: string;
@@ -21,10 +22,13 @@ export function Header({
   className 
 }: HeaderProps) {
   return (
-    <header className={cn(
-      "sticky top-0 z-40 px-4 py-3 bg-[url('/images/backgrounds/write-letter-bg.png')] bg-cover bg-center",
-      className
-    )}>
+    <header 
+      className={cn(
+        "sticky top-0 z-40 px-4 py-3",
+        className
+      )}
+      style={backgroundStyles.writeLetter}
+    >
       <div className="max-w-md mx-auto flex items-center justify-between">
         {showBack && (
           <button

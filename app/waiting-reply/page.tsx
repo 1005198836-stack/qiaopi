@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { characters } from '@/stores/qiaopi';
+import { backgroundStyles } from '@/lib/styles';
 
 const shurouReplies = [
   `接到来书，字字平安，吾心甚慰。你在外谋生不易，切记：身体为本，万事忍让。家中勿念，阿嫲尚健。惟愿你出入平安，贵人相助，早赐机缘，归家团圆。纸短情长，伏惟珍重。`,
@@ -80,7 +81,7 @@ export default function WaitingReplyPage() {
   }, [router, character?.name, message, characterId, userSenderName]);
 
   return (
-    <div className="min-h-screen bg-[url('/images/backgrounds/write-bg.png')] bg-cover bg-center bg-no-repeat flex flex-col items-center px-6">
+    <div className="min-h-screen flex flex-col items-center px-6" style={backgroundStyles.write}>
       <div className="w-full max-w-xs mt-12 text-center">
         <p className="text-[#4B2A1A] font-qiaopi text-lg font-bold mb-3">{character?.name || '对方'}正在给你回信...</p>
         <div className="flex items-center gap-3">
