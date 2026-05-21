@@ -1,13 +1,34 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { backgroundStyles } from '@/lib/styles';
+import { backgroundStyles, preloadImages } from '@/lib/styles';
 
 export default function OpenLetterPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [isOpening, setIsOpening] = useState(false);
   const [hasOpened, setHasOpened] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  useEffect(() => {
+    preloadImages();
+    
+    let loadedCount = 0;
+    const checkLoaded = () => {
+      loadedCount++;
+      if (loadedCount >= 2) {
+        setImagesLoaded(true);
+      }
+    };
+    
+    const img1 = new Image();
+    img1.onload = checkLoaded;
+    img1.src = '/images/envelope-front.png';
+    
+    const img2 = new Image();
+    img2.onload = checkLoaded;
+    img2.src = '/images/envelope-back.png';
+  }, []);
 
   const handleOpen = () => {
     if (isOpening || hasOpened) return;
@@ -37,11 +58,17 @@ export default function OpenLetterPage() {
           onClick={handleOpen}
         >
           <div className="w-56 mx-auto relative" style={{ perspective: '1000px' }}>
+            {/* 加载中的占位 */}
+            <div className={`absolute inset-0 bg-[#D4C4A8] rounded-lg flex items-center justify-center transition-opacity duration-500 ${imagesLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+              <div className="w-8 h-8 border-2 border-[#8B2500] border-t-transparent rounded-full animate-spin" />
+            </div>
+            
             <div 
-              className="transition-transform duration-[1.5s] ease-in-out"
+              className={`transition-all duration-500 ${imagesLoaded ? 'opacity-100' : 'opacity-0'}`}
               style={{
                 transformStyle: 'preserve-3d',
-                transform: isOpening ? 'rotateX(-180deg)' : 'rotateX(0deg)'
+                transform: isOpening ? 'rotateX(-180deg)' : 'rotateX(0deg)',
+                transition: isOpening ? 'transform 1.5s ease-in-out' : 'opacity 0.5s ease-in-out'
               }}
             >
               <div 
