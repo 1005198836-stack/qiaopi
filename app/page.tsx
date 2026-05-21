@@ -8,13 +8,26 @@ import { SplashScreen } from '@/components/SplashScreen';
 export default function HomePage() {
   const router = useRouter();
   const [isReady, setIsReady] = useState(false);
+  const [hasCheckedStorage, setHasCheckedStorage] = useState(false);
 
   useEffect(() => {
     const imagesLoaded = localStorage.getItem('qiaopi-images-loaded');
+    setHasCheckedStorage(true);
     if (imagesLoaded === 'true') {
       setIsReady(true);
     }
   }, []);
+
+  if (!hasCheckedStorage) {
+    return (
+      <div className="min-h-screen bg-[#8B6914] flex flex-col items-center justify-center">
+        <div className="w-20 h-20 rounded-full bg-[#F5E6D3] flex items-center justify-center p-4">
+          <img src="/images/icons/envelope.png" className="w-full h-full object-contain" alt="信封" />
+        </div>
+        <h1 className="text-3xl font-qiaopi text-[#F5E6D3] mt-8 tracking-wider">银信局</h1>
+      </div>
+    );
+  }
 
   if (!isReady) {
     return <SplashScreen onComplete={() => setIsReady(true)} />;
@@ -25,10 +38,10 @@ export default function HomePage() {
       {/* 背景图片 - 支持替换 */}
       <div className="absolute inset-0">
         {/* 背景图 */}
-        <img 
-          src="/images/backgrounds/home-bg.jpg" 
-          className="w-full h-full object-cover" 
-          alt="侨信局背景" 
+        <img
+          src="/images/backgrounds/home-bg.jpg"
+          className="w-full h-full object-cover"
+          alt="侨信局背景"
         />
         {/* 光效叠加层 - 营造温暖氛围 */}
         <div className="absolute inset-0 bg-gradient-to-t from-qiaopi-dark via-qiaopi-dark/40 to-qiaopi-dark/60" />
@@ -60,7 +73,7 @@ export default function HomePage() {
             <h2 className="text-4xl font-qiaopi text-qiaopi-gold text-shadow-qiaopi tracking-wider mt-2">
               家书抵心
             </h2>
-            
+
             {/* 副标题 */}
             <div className="mt-6 space-y-1">
               <p className="text-qiaopi-cream/70 text-sm font-qiaopi">
@@ -91,7 +104,7 @@ export default function HomePage() {
               <div className="text-[#4B2A1A]/70 font-qiaopi text-sm">淑柔、木生、南枝</div>
               <div className="absolute bottom-3 right-3 text-[#4B2A1A]/60 text-base">→</div>
             </button>
-            
+
             <button
               onClick={() => router.push('/mailbox')}
               className="relative h-36 rounded-xl p-4 text-left hover:scale-[1.02] transition-all duration-300"
