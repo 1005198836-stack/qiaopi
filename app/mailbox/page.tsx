@@ -26,7 +26,7 @@ export default function MailboxPage() {
   return (
     <div className="min-h-screen pb-24" style={backgroundStyles.writeLetter}>
       <Header title="我的信箱" showBack onBack={() => router.back()} />
-      
+
       <div className="px-6 pt-4">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-qiaopi-dark font-qiaopi text-lg">你寄出的侨批</h2>
@@ -57,32 +57,33 @@ export default function MailboxPage() {
               >
                 <div className="flex items-start gap-4">
                   <div className="relative w-16 h-20 flex-shrink-0">
-                    <div className="w-full h-full bg-gradient-to-br from-qiaopi-light to-qiaopi-cream rounded-lg border border-qiaopi-brown/30 flex flex-col items-center justify-center">
-                      <span className="text-qiaopi-red font-qiaopi text-xl font-bold">侨</span>
-                      <span className="text-qiaopi-brown/60 font-qiaopi text-xs mt-1">批</span>
-                    </div>
+                    <img
+                      src="/images/cards/write-letter-bg.png"
+                      className="w-full h-full object-cover rounded-lg"
+                      alt="侨批"
+                    />
                     <div className="absolute -top-1 -right-1 w-5 h-5 bg-qiaopi-red rounded-full flex items-center justify-center">
                       <span className="text-qiaopi-cream text-xs">批</span>
                     </div>
                   </div>
-                  
+
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between mb-1">
                       <h3 className="text-qiaopi-dark font-qiaopi text-sm font-medium truncate">
                         {qiaopi.sender.name} 寄给 {qiaopi.receiver.name}
                       </h3>
                     </div>
-                    
+
                     <div className="flex items-center gap-3 text-xs text-qiaopi-dark/60 font-qiaopi mb-2">
                       <span>{qiaopi.sender.hometown}</span>
                       <span>→</span>
                       <span>{qiaopi.sender.currentLocation}</span>
                     </div>
-                    
+
                     <p className="text-qiaopi-dark/60 font-qiaopi text-xs line-clamp-2">
                       {qiaopi.content.substring(0, 50)}...
                     </p>
-                    
+
                     <div className="flex items-center justify-between mt-2">
                       <span className="text-qiaopi-dark/40 font-qiaopi text-xs">{qiaopi.createdAt}</span>
                       <span className="text-qiaopi-brown font-qiaopi text-xs">查看详情 →</span>
@@ -94,7 +95,7 @@ export default function MailboxPage() {
           </div>
         )}
       </div>
-      
+
       <BottomNav currentPage="mailbox" />
     </div>
   );
