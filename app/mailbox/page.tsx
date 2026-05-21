@@ -52,20 +52,16 @@ export default function MailboxPage() {
               <div
                 key={qiaopi.id}
                 onClick={() => handleLetterClick(qiaopi)}
-                className="bg-gradient-to-br from-qiaopi-light to-white rounded-2xl border border-qiaopi-brown/20 shadow-sm p-4 cursor-pointer hover:shadow-md transition-all duration-300 animate-slide-up"
+                className="bg-[#FDFCFA] rounded-2xl border border-qiaopi-brown/20 shadow-sm p-4 cursor-pointer hover:shadow-md transition-all duration-300 animate-slide-up"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex items-start gap-4">
-                  <div className="relative w-16 h-20 flex-shrink-0">
-                    <img
+                  <img
                       src="/images/cards/letter-card.png"
-                      className="w-full h-full object-cover rounded-lg"
+                      className="flex-shrink-0"
+                      style={{ width: '64px' }}
                       alt="侨批"
                     />
-                    <div className="absolute -top-1 -right-1 w-5 h-5 bg-qiaopi-red rounded-full flex items-center justify-center">
-                      <span className="text-qiaopi-cream text-xs">批</span>
-                    </div>
-                  </div>
 
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between mb-1">

@@ -3,13 +3,16 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { Share2, FileText } from 'lucide-react';
 import { Header } from '@/components/Header';
 import { BottomNav } from '@/components/BottomNav';
+import { Toast, useToast } from '@/components/Toast';
 import { getChineseDate } from '@/lib/utils';
 import { saveQiaopi, generateId, Qiaopi } from '@/stores/qiaopi';
 import { backgroundStyles } from '@/lib/styles';
+import { useState } from 'react';
 
 export default function LetterDetailPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const [showToast, setShowToast] = useState(false);
 
   const senderName = searchParams.get('senderName') || '';
   const senderGender = searchParams.get('senderGender') || '';
@@ -414,7 +417,11 @@ ${getChineseDate()}`;
     };
     
     saveQiaopi(newQiaopi);
-    alert('侨批已保存到信箱');
+    setShowToast(true);
+  };
+
+  const handleToastClose = () => {
+    setShowToast(false);
     router.push('/mailbox');
   };
 
@@ -495,6 +502,8 @@ ${getChineseDate()}`;
       </div>
       
       <BottomNav currentPage="mailbox" />
+      
+      {showToast && <Toast message="侨批已保存到信箱" onClose={handleToastClose} />}
     </div>
   );
 }

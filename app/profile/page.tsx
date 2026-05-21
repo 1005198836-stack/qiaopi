@@ -55,6 +55,7 @@ export default function ProfilePage() {
 
         <div className="mt-6 text-center">
           <p className="text-qiaopi-dark/40 font-qiaopi text-xs">侨批生成器 v1.0.0</p>
+          <p className="text-qiaopi-dark/40 font-qiaopi text-xs mt-1">作者：anqicc</p>
         </div>
       </div>
       
